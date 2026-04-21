@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('header');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Close menu when a link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
     
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
